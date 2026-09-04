@@ -2,8 +2,6 @@ require_relative "./deck"
 require_relative "./player"
 
 class Game
-  attr_reader :players
-
   def initialize(num_players)
     deck = Deck.new
     @players = num_players.times.map { |n| Player.new(n + 1) }
@@ -29,6 +27,8 @@ class Game
   end
 
   private
+
+  attr_reader :players
 
   def select_winners(contenders, pot = [], played_cards = {})
     contenders.each do |player|
